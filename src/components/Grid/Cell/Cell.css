@@ -1,0 +1,12 @@
+.Cell {
+  display: inline-block;
+  /* display: block; */
+}
+
+.Cell.populated {
+  background-color: greenyellow;
+}
+
+.Cell.unpopulated {
+  background-color: #8080ff;
+}
