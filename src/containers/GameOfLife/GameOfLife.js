@@ -1,6 +1,5 @@
 
-import React, { Component } from 'react';
-import Aux from '../../hoc/Aux';
+import React, { Component, Fragment } from 'react';
 import GameControls from '../GameControls/GameControls';
 import Grid from '../../components/Grid/Grid';
 import Cells from '../../objects/Cells';
@@ -8,7 +7,6 @@ import Cells from '../../objects/Cells';
 export default class GameOfLife extends Component {
   constructor({ size }) {
     super();
-    // const cells = this.makeEmptyCells(size);
     const cells = new Cells();
     cells.fill(size);
     this.state = {
@@ -41,11 +39,11 @@ export default class GameOfLife extends Component {
     const newCells = cells.map((cell, i, j) => {
       return this.checkCell(cells, i, j);
     })
-    
+
     // // check outer rim
     // Array(cells.length + 1).fill().map((_, i) => {
     //   // top
-      
+
     //   // bottom
     //   // left
     //   // right
@@ -132,8 +130,8 @@ export default class GameOfLife extends Component {
 
   render() {
     return (
-      <Aux>
-        <GameControls 
+      <Fragment>
+        <GameControls
           toggleRun={this.toggleRun}
           running={this.state.running}
           step={this.step}
@@ -146,7 +144,7 @@ export default class GameOfLife extends Component {
           saved={this.state.saved}
         />
         <Grid cells={this.state.cells} toggle={this.toggle}/>
-      </Aux>
+      </Fragment>
     );
   }
 }
